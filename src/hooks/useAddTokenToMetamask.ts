@@ -1,6 +1,6 @@
 import { getTokenFallbackLogoURL } from './../components/CurrencyLogo/index'
 import { wrappedCurrency } from 'utils/wrappedCurrency'
-import { Currency, Token } from '@venomswap/sdk'
+import { Currency, Token } from '@exchange-one/sdk'
 import { useCallback, useState } from 'react'
 import { useActiveWeb3React } from 'hooks'
 
@@ -19,7 +19,7 @@ export default function useAddTokenToMetamask(
         .request({
           method: 'wallet_watchAsset',
           params: {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             //@ts-ignore // need this for incorrect ethers provider type
             type: 'ERC20',
             options: {

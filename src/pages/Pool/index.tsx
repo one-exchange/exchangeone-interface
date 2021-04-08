@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { Pair, JSBI } from '@venomswap/sdk'
+import { Pair, JSBI } from '@exchange-one/sdk'
 import { Link } from 'react-router-dom'
 import { SwapPoolTabs } from '../../components/NavigationTabs'
 
@@ -22,7 +22,7 @@ import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/
 import { useStakingInfo } from '../../state/stake/hooks'
 import { BIG_INT_ZERO } from '../../constants'
 
-import { Blockchain } from '@venomswap/sdk'
+import { Blockchain } from '@exchange-one/sdk'
 import useBlockchain from '../../hooks/useBlockchain'
 import baseCurrencies from '../../utils/baseCurrencies'
 
@@ -86,7 +86,7 @@ export default function Pool() {
   const theme = useContext(ThemeContext)
   const { account, chainId } = useActiveWeb3React()
   const blockchain = useBlockchain()
-  
+
   const baseCurrency = baseCurrencies(chainId)[0]
   const addLiquidityUrl = `/add/${baseCurrency.symbol}`
   const createPoolUrl = `/create/${baseCurrency.symbol}`
@@ -242,7 +242,7 @@ export default function Pool() {
 
             <AutoColumn justify={'center'} gap="md">
               <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0' }}>
-                {hasV1Liquidity ? 'Viperswap V1 liquidity found!' : "Don't see a pool you joined?"}{' '}
+                {hasV1Liquidity ? 'Exchange.one V1 liquidity found!' : "Don't see a pool you joined?"}{' '}
                 <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
                   {hasV1Liquidity ? 'Migrate now.' : 'Import it.'}
                 </StyledInternalLink>

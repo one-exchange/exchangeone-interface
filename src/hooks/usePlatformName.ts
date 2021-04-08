@@ -1,16 +1,16 @@
-import { Blockchain } from '@venomswap/sdk'
+import { Blockchain } from '@exchange-one/sdk'
 import useBlockchain from './useBlockchain'
 
 export default function usePlatformName(): string {
   const blockchain = useBlockchain()
   switch (blockchain) {
     case Blockchain.BINANCE_SMART_CHAIN:
-      return 'Cobraswap'
+      return 'Exchange.one'
     case Blockchain.HARMONY:
-      return 'Viperswap'
+      return 'Exchange.one'
     case Blockchain.ETHEREUM:
-      return 'Venomswap'
+      return 'Exchange.one'
     default:
-      return 'Venomswap'
+      return 'Exchange.one'
   }
 }

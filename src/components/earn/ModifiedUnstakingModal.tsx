@@ -7,7 +7,7 @@ import { TYPE, CloseIcon } from '../../theme'
 import { ButtonError } from '../Button'
 import CurrencyInputPanel from '../CurrencyInputPanel'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
-import { TokenAmount, Pair } from '@venomswap/sdk'
+import { TokenAmount, Pair } from '@exchange-one/sdk'
 import { StakingInfo, useDerivedUnstakeInfo } from '../../state/stake/hooks'
 //import { wrappedCurrencyAmount } from '../../utils/wrappedCurrency'
 import { TransactionResponse } from '@ethersproject/providers'
@@ -128,7 +128,8 @@ export default function ModifiedStakingModal({ isOpen, onDismiss, stakingInfo }:
               <BlueCard>
                 <AutoColumn gap="10px">
                   <TYPE.link fontWeight={400} color={'primaryText1'}>
-                    <b>Important:</b> {platformName} utilizes LP withdrawal fees to disincentivize short term farming and selling.
+                    <b>Important:</b> {platformName} utilizes LP withdrawal fees to disincentivize short term farming
+                    and selling.
                     <br />
                     <br />
                     Standard withdrawal fees range from 0.1% - 0.5%.
@@ -141,7 +142,8 @@ export default function ModifiedStakingModal({ isOpen, onDismiss, stakingInfo }:
                       <li>4% fee if a user withdraws under 24 hours.</li>
                       <li>8% fee if a user withdraws under 1 hour.</li>
                       <li>
-                        25% slashing fee if a user withdraws during the same block (in order to disincentivize the use of flash loans).
+                        25% slashing fee if a user withdraws during the same block (in order to disincentivize the use
+                        of flash loans).
                       </li>
                     </ul>
                   </TYPE.link>
@@ -175,7 +177,7 @@ export default function ModifiedStakingModal({ isOpen, onDismiss, stakingInfo }:
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Withdrawing Liquidity</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} VENOM-LP</TYPE.body>
+            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} ONEX-LP</TYPE.body>
           </AutoColumn>
         </LoadingView>
       )}
@@ -183,7 +185,7 @@ export default function ModifiedStakingModal({ isOpen, onDismiss, stakingInfo }:
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>Withdraw {parsedAmount?.toSignificant(4)} VENOM-LP</TYPE.body>
+            <TYPE.body fontSize={20}>Withdraw {parsedAmount?.toSignificant(4)} ONEX-LP</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

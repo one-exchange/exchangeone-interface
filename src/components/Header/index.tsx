@@ -1,4 +1,4 @@
-import { ChainId, TokenAmount, Blockchain } from '@venomswap/sdk'
+import { ChainId, TokenAmount } from '@exchange-one/sdk'
 import React, { useState } from 'react'
 import { Text } from 'rebass'
 import { NavLink } from 'react-router-dom'
@@ -7,10 +7,8 @@ import { useTranslation } from 'react-i18next'
 
 import styled from 'styled-components'
 
-import ViperLogo from '../../assets/svg/viperswap/black.svg'
-import ViperLogoDark from '../../assets/svg/viperswap/white.svg'
-import CobraLogo from '../../assets/svg/cobraswap/black.svg'
-import CobraLogoDark from '../../assets/svg/cobraswap/white.svg'
+import Logo from '../../assets/svg/harmony.svg'
+import LogoDark from '../../assets/svg/harmony.svg'
 import { useActiveWeb3React } from '../../hooks'
 import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances, useAggregateGovTokenBalance } from '../../state/wallet/hooks'
@@ -32,7 +30,7 @@ import { Dots } from '../swap/styleds'
 import Modal from '../Modal'
 import GovTokenBalanceContent from './GovTokenBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
-import { BASE_CURRENCY, BLOCKCHAIN } from '../../connectors'
+import { BASE_CURRENCY } from '../../connectors'
 import { PIT_SETTINGS } from '../../constants'
 import useGovernanceToken from '../../hooks/useGovernanceToken'
 
@@ -310,24 +308,6 @@ export default function Header() {
   const govToken = useGovernanceToken()
   const pitSettings = chainId ? PIT_SETTINGS[chainId] : undefined
 
-  let logoDark: string
-  let logo: string
-
-  switch (BLOCKCHAIN) {
-    case Blockchain.BINANCE_SMART_CHAIN:
-      logoDark = CobraLogoDark
-      logo = CobraLogo
-      break
-    case Blockchain.HARMONY:
-      logoDark = ViperLogoDark
-      logo = ViperLogo
-      break
-    default:
-      logoDark = ViperLogoDark
-      logo = ViperLogo
-      break
-  }
-
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   // const [isDark] = useDarkModeManager()
   const [darkMode, toggleDarkMode] = useDarkModeManager()
@@ -355,7 +335,7 @@ export default function Header() {
       <HeaderRow>
         <Title href=".">
           <UniIcon>
-            <img width={'48px'} src={darkMode ? logoDark : logo} alt="logo" />
+            <img width={'48px'} src={darkMode ? LogoDark : Logo} alt="logo" />
           </UniIcon>
         </Title>
         <HeaderLinks>
@@ -394,7 +374,11 @@ export default function Header() {
             <UNIWrapper onClick={toggleClaimModal}>
               <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
                 <TYPE.white padding="0 2px">
-                  {claimTxn && !claimTxn?.receipt ? <Dots>Claiming {govToken?.symbol}</Dots> : `Claim ${govToken?.symbol}`}
+                  {claimTxn && !claimTxn?.receipt ? (
+                    <Dots>Claiming {govToken?.symbol}</Dots>
+                  ) : (
+                    `Claim ${govToken?.symbol}`
+                  )}
                 </TYPE.white>
               </UNIAmount>
               <CardNoise />

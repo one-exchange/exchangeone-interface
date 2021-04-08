@@ -3,8 +3,8 @@ import { AutoColumn } from '../../components/Column'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-import { JSBI, DEFAULT_CURRENCIES } from '@venomswap/sdk'
-//import { JSBI, TokenAmount, ETHER } from '@venomswap/sdk'
+import { JSBI, DEFAULT_CURRENCIES } from '@exchange-one/sdk'
+//import { JSBI, TokenAmount, ETHER } from '@exchange-one/sdk'
 import { RouteComponentProps } from 'react-router-dom'
 import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useCurrency } from '../../hooks/Tokens'
@@ -177,7 +177,8 @@ export default function Manage({
               {stakingInfo && stakingInfo.valueOfTotalStakedAmountInPairCurrency && valueOfTotalStakedAmountInBUSD
                 ? `$${valueOfTotalStakedAmountInBUSD.toFixed(0, { groupSeparator: ',' })}`
                 : stakingInfo && stakingInfo.valueOfTotalStakedAmountInPairCurrency
-                ? `${stakingInfo.valueOfTotalStakedAmountInPairCurrency?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ONE`
+                ? `${stakingInfo.valueOfTotalStakedAmountInPairCurrency?.toSignificant(4, { groupSeparator: ',' }) ??
+                    '-'} ONE`
                 : '$0'}
             </TYPE.body>
           </AutoColumn>
@@ -204,11 +205,11 @@ export default function Manage({
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={600}>Step 1. Get VENOM-LP Liquidity tokens</TYPE.white>
+                <TYPE.white fontWeight={600}>Step 1. Get ONEX-LP Liquidity tokens</TYPE.white>
               </RowBetween>
               <RowBetween style={{ marginBottom: '1rem' }}>
                 <TYPE.white fontSize={14}>
-                  {`VENOM-LP tokens are required. Once you've added liquidity to the ${currencyA?.symbol}-${currencyB?.symbol} pool you can stake your liquidity tokens on this page.`}
+                  {`ONEX-LP tokens are required. Once you've added liquidity to the ${currencyA?.symbol}-${currencyB?.symbol} pool you can stake your liquidity tokens on this page.`}
                 </TYPE.white>
               </RowBetween>
               <ButtonPrimary
@@ -263,7 +264,7 @@ export default function Manage({
                     {stakingInfo?.stakedAmount?.toSignificant(6) ?? '-'}
                   </TYPE.white>
                   <TYPE.white>
-                  VENOM-LP {currencyA?.symbol}-{currencyB?.symbol}
+                    ONEX-LP {currencyA?.symbol}-{currencyB?.symbol}
                   </TYPE.white>
                 </RowBetween>
               </AutoColumn>
@@ -327,7 +328,7 @@ export default function Manage({
           <DataRow style={{ marginBottom: '1rem' }}>
             {stakingInfo && stakingInfo.active && (
               <ButtonPrimary padding="8px" borderRadius="8px" width="160px" onClick={handleDepositClick}>
-                {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : 'Deposit VENOM-LP Tokens'}
+                {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : 'Deposit ONEX-LP Tokens'}
               </ButtonPrimary>
             )}
 
@@ -357,7 +358,7 @@ export default function Manage({
           </DataRow>
         )}
         {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : !stakingInfo?.active ? null : (
-          <TYPE.main>You have {userLiquidityUnstaked.toSignificant(6)} VENOM-LP tokens available to deposit</TYPE.main>
+          <TYPE.main>You have {userLiquidityUnstaked.toSignificant(6)} ONEX-LP tokens available to deposit</TYPE.main>
         )}
       </PositionInfo>
     </PageWrapper>

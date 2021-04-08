@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react'
-import { TokenAmount } from '@venomswap/sdk'
+import { TokenAmount } from '@exchange-one/sdk'
 import { AutoColumn } from '../../components/Column'
 import styled from 'styled-components'
 
-//import { JSBI } from '@venomswap/sdk'
-//import { JSBI, TokenAmount, ETHER } from '@venomswap/sdk'
+//import { JSBI } from '@exchange-one/sdk'
+//import { JSBI, TokenAmount, ETHER } from '@exchange-one/sdk'
 import { RouteComponentProps } from 'react-router-dom'
 import { useWalletModalToggle } from '../../state/application/hooks'
 import { TYPE } from '../../theme'
@@ -208,7 +208,8 @@ export default function Pit({
 
         {account && (
           <TYPE.main>
-            You have {govTokenBalance?.toFixed(2, { groupSeparator: ',' })} {govToken?.symbol} tokens available to deposit to the {pitSettings?.name}
+            You have {govTokenBalance?.toFixed(2, { groupSeparator: ',' })} {govToken?.symbol} tokens available to
+            deposit to the {pitSettings?.name}
           </TYPE.main>
         )}
 
@@ -225,7 +226,6 @@ export default function Pit({
             <ButtonPrimary padding="8px" borderRadius="8px" width="160px" onClick={() => setShowUnstakingModal(true)}>
               Withdraw
             </ButtonPrimary>
-
           </DataRow>
         )}
 
@@ -246,7 +246,6 @@ export default function Pit({
             </TYPE.main>
           </AutoColumn>
         </BlueCard>
-
       </TopSection>
     </PageWrapper>
   )

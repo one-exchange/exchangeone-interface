@@ -1,4 +1,4 @@
-import { Currency, currencyEquals, JSBI, Price, WETH } from '@venomswap/sdk'
+import { Currency, currencyEquals, JSBI, Price, WETH } from '@exchange-one/sdk'
 import { useMemo } from 'react'
 import { BUSD } from '../constants/tokens'
 import { PairState, usePairs } from '../data/Reserves'

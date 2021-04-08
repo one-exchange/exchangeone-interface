@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Code, MessageCircle } from 'react-feather'
+import { Code } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useActiveWeb3React } from '../../hooks'
@@ -12,7 +12,7 @@ import { ButtonPrimary } from '../Button'
 
 import useGovernanceToken from '../../hooks/useGovernanceToken'
 import useBlockchain from '../../hooks/useBlockchain'
-import { Blockchain } from '@venomswap/sdk'
+import { Blockchain } from '@exchange-one/sdk'
 
 const StyledMenuIcon = styled(MenuIcon)`
   path {
@@ -89,7 +89,7 @@ const MenuItem = styled(ExternalLink)`
   }
 `
 
-const CODE_LINK = 'https://github.com/VenomProtocol'
+const CODE_LINK = 'https://github.com/Exchange-One'
 
 export default function Menu() {
   const { account } = useActiveWeb3React()
@@ -111,10 +111,6 @@ export default function Menu() {
 
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://t.me/VenomDAO">
-            <MessageCircle size={14} />
-            Telegram
-          </MenuItem>
           <MenuItem id="link" href={CODE_LINK}>
             <Code size={14} />
             Code

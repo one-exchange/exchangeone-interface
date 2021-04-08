@@ -1,4 +1,4 @@
-import { ChainId, JSBI, BLOCKCHAIN_SETTINGS } from '@venomswap/sdk'
+import { ChainId, JSBI, BLOCKCHAIN_SETTINGS } from '@exchange-one/sdk'
 
 export default function getBlocksPerYear(chainId: ChainId | undefined): JSBI {
   const blockchainSettings = chainId ? BLOCKCHAIN_SETTINGS[chainId] : undefined

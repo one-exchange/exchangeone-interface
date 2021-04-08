@@ -8,7 +8,7 @@ import {
   Pair,
   Fraction,
   DEFAULT_CURRENCIES
-} from '@venomswap/sdk'
+} from '@exchange-one/sdk'
 import { useMemo } from 'react'
 import { STAKING_REWARDS_INFO } from '../../constants/staking'
 import { HARMONY_BSC_BRIDGED_BUSD } from '../../constants/tokens'
@@ -19,7 +19,7 @@ import { tryParseAmount } from '../swap/hooks'
 //import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
 import { useMasterBreederContract } from '../../hooks/useContract'
 import { useMultipleContractSingleData } from '../../state/multicall/hooks'
-import { abi as IUniswapV2PairABI } from '@venomswap/core/build/IUniswapV2Pair.json'
+import { abi as IUniswapV2PairABI } from '@exchange-one/core/build/IUniswapV2Pair.json'
 import { Interface } from '@ethersproject/abi'
 import useGovernanceToken from '../../hooks/useGovernanceToken'
 import useGovernanceTokenWethPrice from '../../hooks/useGovernanceTokenWethPrice'

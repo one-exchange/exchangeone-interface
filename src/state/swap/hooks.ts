@@ -1,7 +1,7 @@
 import useENS from '../../hooks/useENS'
 import { Version } from '../../hooks/useToggledVersion'
 import { parseUnits } from '@ethersproject/units'
-import { Currency, CurrencyAmount, JSBI, Token, TokenAmount, Trade, DEFAULT_CURRENCIES } from '@venomswap/sdk'
+import { Currency, CurrencyAmount, JSBI, Token, TokenAmount, Trade, DEFAULT_CURRENCIES } from '@exchange-one/sdk'
 import { ParsedQs } from 'qs'
 import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -40,7 +40,11 @@ export function useSwapActionHandlers(): {
         selectCurrency({
           field,
           currencyId:
-            currency instanceof Token ? currency.address : currency && DEFAULT_CURRENCIES.includes(currency) ? symbol : ''
+            currency instanceof Token
+              ? currency.address
+              : currency && DEFAULT_CURRENCIES.includes(currency)
+              ? symbol
+              : ''
         })
       )
     },

@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, TokenAmount, WETH, DEFAULT_CURRENCIES } from '@venomswap/sdk'
+import { Currency, currencyEquals, TokenAmount, WETH, DEFAULT_CURRENCIES } from '@exchange-one/sdk'
 import React, { useCallback, useContext, useState } from 'react'
 import { Plus } from 'react-feather'
 import ReactGA from 'react-ga'
@@ -148,7 +148,10 @@ export default function AddLiquidity({
       method: (...args: any) => Promise<TransactionResponse>,
       args: Array<string | string[] | number>,
       value: BigNumber | null
-    if ((currencyA && DEFAULT_CURRENCIES.includes(currencyA)) || (currencyB && DEFAULT_CURRENCIES.includes(currencyB))) {
+    if (
+      (currencyA && DEFAULT_CURRENCIES.includes(currencyA)) ||
+      (currencyB && DEFAULT_CURRENCIES.includes(currencyB))
+    ) {
       const tokenBIsETH = currencyB && DEFAULT_CURRENCIES.includes(currencyB)
       estimate = router.estimateGas.addLiquidityETH
       method = router.addLiquidityETH

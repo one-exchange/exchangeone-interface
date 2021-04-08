@@ -1,4 +1,4 @@
-import { JSBI, Token } from '@venomswap/sdk'
+import { JSBI, Token } from '@exchange-one/sdk'
 import React, { useCallback, useContext, useMemo, useState, useEffect } from 'react'
 import { ThemeContext } from 'styled-components'
 import { AutoColumn } from '../../components/Column'
@@ -73,13 +73,13 @@ export default function MigrateV1() {
           <BackArrow to="/pool" />
           <TYPE.mediumHeader>Migrate V1 Liquidity</TYPE.mediumHeader>
           <div>
-            <QuestionHelper text="Migrate your liquidity tokens from Viperswap V1 to Viperswap V2." />
+            <QuestionHelper text="Migrate your liquidity tokens from Exchange.one V1 to Exchange.one V2." />
           </div>
         </AutoRow>
 
         <TYPE.body style={{ marginBottom: 8, fontWeight: 400 }}>
-          For each pool shown below, click migrate to remove your liquidity from Viperswap V1 and deposit it into
-          Viperswap V2.
+          For each pool shown below, click migrate to remove your liquidity from Exchange.one V1 and deposit it into
+          Exchange.one V2.
         </TYPE.body>
 
         {!account ? (

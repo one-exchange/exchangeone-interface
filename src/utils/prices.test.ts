@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@venomswap/sdk'
+import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@exchange-one/sdk'
 import { computeTradePriceBreakdown } from './prices'
 
 describe('prices', () => {

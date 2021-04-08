@@ -1,4 +1,4 @@
-import { ChainId, Currency } from '@venomswap/sdk'
+import { ChainId, Currency } from '@exchange-one/sdk'
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import Modal from '../Modal'

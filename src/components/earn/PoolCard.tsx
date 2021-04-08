@@ -4,7 +4,7 @@ import { RowBetween } from '../Row'
 import styled from 'styled-components'
 import { TYPE, StyledInternalLink } from '../../theme'
 import DoubleCurrencyLogo from '../DoubleLogo'
-import { JSBI } from '@venomswap/sdk'
+import { JSBI } from '@exchange-one/sdk'
 import { ButtonPrimary } from '../Button'
 import { StakingInfo } from '../../state/stake/hooks'
 import { useColor } from '../../hooks/useColor'
@@ -14,7 +14,7 @@ import { unwrappedToken } from '../../utils/wrappedCurrency'
 import useBUSDPrice from '../../hooks/useBUSDPrice'
 //import useUSDCPrice from '../../utils/useUSDCPrice'
 //import { BIG_INT_SECONDS_IN_WEEK } from '../../constants'
-import { DEFAULT_CURRENCIES } from '@venomswap/sdk'
+import { DEFAULT_CURRENCIES } from '@exchange-one/sdk'
 import useGovernanceToken from '../../hooks/useGovernanceToken'
 
 const StatContainer = styled.div`
@@ -142,7 +142,8 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
               {stakingInfo && stakingInfo.valueOfTotalStakedAmountInPairCurrency && valueOfTotalStakedAmountInBUSD
                 ? `$${valueOfTotalStakedAmountInBUSD.toFixed(0, { groupSeparator: ',' })}`
                 : stakingInfo && stakingInfo.valueOfTotalStakedAmountInPairCurrency
-                ? `${stakingInfo.valueOfTotalStakedAmountInPairCurrency?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ONE`
+                ? `${stakingInfo.valueOfTotalStakedAmountInPairCurrency?.toSignificant(4, { groupSeparator: ',' }) ??
+                    '-'} ONE`
                 : '$0'}
             </b>
           </TYPE.white>

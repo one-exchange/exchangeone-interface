@@ -1,4 +1,4 @@
-import { Blockchain } from '@venomswap/sdk'
+import { Blockchain } from '@exchange-one/sdk'
 
 export default function getExplorerName(blockchain: Blockchain): string {
   switch (blockchain) {

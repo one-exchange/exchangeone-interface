@@ -1,5 +1,5 @@
 import React from 'react'
-import { WETH, JSBI, BLOCKCHAIN_SETTINGS } from '@venomswap/sdk'
+import { WETH, JSBI, BLOCKCHAIN_SETTINGS } from '@exchange-one/sdk'
 import { AutoColumn } from '../../components/Column'
 import styled from 'styled-components'
 import { STAKING_REWARDS_INFO } from '../../constants/staking'
@@ -106,7 +106,8 @@ export default function Earn() {
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>
-                  Deposit your Liquidity Provider tokens to receive {govToken?.symbol}, the {govToken?.name} Protocol governance token.
+                  Deposit your Liquidity Provider tokens to receive {govToken?.symbol}, the {govToken?.name} Protocol
+                  governance token.
                 </TYPE.white>
               </RowBetween>{' '}
             </AutoColumn>
@@ -153,9 +154,11 @@ export default function Earn() {
             <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px' }}>
               ☁️
             </span>
-            The base emission rate is currently <b>{baseEmissions.toSignificant(4, { groupSeparator: ',' })}</b> {govToken?.symbol} per block.
+            The base emission rate is currently <b>{baseEmissions.toSignificant(4, { groupSeparator: ',' })}</b>{' '}
+            {govToken?.symbol} per block.
             <br />
-            <b>{emissionsPerMinute?.toSignificant(4, { groupSeparator: ',' })}</b> {govToken?.symbol} will be minted every minute given the current emission schedule.
+            <b>{emissionsPerMinute?.toSignificant(4, { groupSeparator: ',' })}</b> {govToken?.symbol} will be minted
+            every minute given the current emission schedule.
             <br />
             The base emission rate gets significantly reduced every week.
             <br />

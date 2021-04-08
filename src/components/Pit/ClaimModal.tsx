@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import { JSBI } from '@venomswap/sdk'
+import { JSBI } from '@exchange-one/sdk'
 import Modal from '../Modal'
 import { AutoColumn } from '../Column'
 import styled from 'styled-components'
@@ -13,7 +13,7 @@ import { useTransactionAdder } from '../../state/transactions/hooks'
 import { useActiveWeb3React } from '../../hooks'
 import { calculateGasMargin } from '../../utils'
 import { STAKING_REWARDS_INFO } from '../../constants/staking'
-import { abi as IUniswapV2PairABI } from '@venomswap/core/build/IUniswapV2Pair.json'
+import { abi as IUniswapV2PairABI } from '@exchange-one/core/build/IUniswapV2Pair.json'
 import { Interface } from '@ethersproject/abi'
 import { useMultipleContractSingleData } from '../../state/multicall/hooks'
 import { toV2LiquidityToken } from '../../state/user/hooks'
@@ -137,8 +137,10 @@ export default function ClaimModal({ isOpen, onDismiss }: ClaimModalProps) {
             <>
               <TYPE.body fontSize={14} style={{ textAlign: 'center' }}>
                 When you claim rewards, collected LP fees will be used to market buy {govToken?.symbol}.
-                <br /><br />
-                The purchased {govToken?.symbol} tokens will then be distributed to the {pitSettings?.name} stakers as a reward.
+                <br />
+                <br />
+                The purchased {govToken?.symbol} tokens will then be distributed to the {pitSettings?.name} stakers as a
+                reward.
               </TYPE.body>
               <ButtonError disabled={!!error} error={!!error} onClick={onClaimRewards}>
                 {error ?? 'Claim'}
@@ -150,7 +152,8 @@ export default function ClaimModal({ isOpen, onDismiss }: ClaimModalProps) {
               There are no trading fee rewards available
               <br />
               to claim right now.
-              <br /><br />
+              <br />
+              <br />
               Please wait a little bit and then check back here again.
             </TYPE.body>
           )}

@@ -17,7 +17,7 @@ import { isAddress } from 'ethers/lib/utils'
 import Confetti from '../Confetti'
 import { CardNoise, CardBGImage, CardBGImageSmaller } from '../earn/styled'
 import { useIsTransactionPending } from '../../state/transactions/hooks'
-import { TokenAmount } from '@venomswap/sdk'
+import { TokenAmount } from '@exchange-one/sdk'
 import { getEtherscanLink, shortenAddress } from '../../utils'
 import useBlockchain from '../../hooks/useBlockchain'
 import getExplorerName from '../../utils/getExplorerName'
@@ -120,7 +120,8 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
           </ModalUpper>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="center">
             <TYPE.subHeader fontWeight={500}>
-              Enter an address to trigger a {govToken?.symbol} claim. If the address has any claimable {govToken?.symbol}
+              Enter an address to trigger a {govToken?.symbol} claim. If the address has any claimable{' '}
+              {govToken?.symbol}
               it will be sent to them on submission.
             </TYPE.subHeader>
             <AddressInputPanel value={typed} onChange={handleRecipientType} />

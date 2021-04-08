@@ -1,4 +1,4 @@
-import { Price, Fraction, TokenAmount, JSBI } from '@venomswap/sdk'
+import { Price, Fraction, TokenAmount, JSBI } from '@exchange-one/sdk'
 
 export default function calculateApr(
   govTokenWethPrice: Price | undefined,

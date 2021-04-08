@@ -1,4 +1,4 @@
-import { TokenAmount, Blockchain } from '@venomswap/sdk'
+import { TokenAmount, Blockchain } from '@exchange-one/sdk'
 import React from 'react'
 //import React, { useMemo } from 'react'
 import { X } from 'react-feather'
@@ -115,7 +115,9 @@ export default function GovTokenBalanceContent({ setShowUniBalanceModal }: { set
                     <MouseoverTooltip
                       text={
                         govTokenPrice && govTokenBalance && govTokenBalance.greaterThan('0')
-                          ? `USD: $${govTokenBalance.multiply(govTokenPrice?.raw).toSignificant(6, { groupSeparator: ',' })}`
+                          ? `USD: $${govTokenBalance
+                              .multiply(govTokenPrice?.raw)
+                              .toSignificant(6, { groupSeparator: ',' })}`
                           : ''
                       }
                     >
@@ -185,7 +187,7 @@ export default function GovTokenBalanceContent({ setShowUniBalanceModal }: { set
                 <RowBetween>
                   <TYPE.white color="white">Total Balance:</TYPE.white>
                   <TYPE.white color="white">
-                  <MouseoverTooltip
+                    <MouseoverTooltip
                       text={
                         govTokenPrice && govTokenTotalBalance && govTokenTotalBalance.greaterThan('0')
                           ? `USD: $${govTokenTotalBalance
@@ -193,7 +195,7 @@ export default function GovTokenBalanceContent({ setShowUniBalanceModal }: { set
                               .toSignificant(6, { groupSeparator: ',' })}`
                           : ''
                       }
-                      >
+                    >
                       {govTokenTotalBalance?.toFixed(2, { groupSeparator: ',' })}
                     </MouseoverTooltip>
                   </TYPE.white>

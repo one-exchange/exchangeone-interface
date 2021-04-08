@@ -15,7 +15,7 @@ import DelegateModal from '../../components/vote/DelegateModal'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../hooks'
 import { ZERO_ADDRESS } from '../../constants'
-import { JSBI, TokenAmount, ChainId } from '@venomswap/sdk'
+import { JSBI, TokenAmount, ChainId } from '@exchange-one/sdk'
 import { shortenAddress, getEtherscanLink } from '../../utils'
 import Loader from '../../components/Loader'
 import FormattedCurrencyAmount from '../../components/FormattedCurrencyAmount'
@@ -139,7 +139,7 @@ export default function Vote() {
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={600}>Viper Governance</TYPE.white>
+                <TYPE.white fontWeight={600}>Exchange.one Governance</TYPE.white>
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>
